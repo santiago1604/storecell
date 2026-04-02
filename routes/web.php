@@ -78,5 +78,8 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/settings', [\App\Http\Controllers\SettingsController::class,'update'])->name('settings.update');
         // Mantenimiento
         Route::post('/admin/reset-keep-users', [MaintenanceController::class,'resetKeepUsers'])->name('admin.reset.keep-users');
-    });
+        Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
+        Route::patch('/profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    
+        });
 });
